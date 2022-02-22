@@ -71,7 +71,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white {{$title == 'Subjects' ? 'active bg-gradient-primary' : ''}}  " href="./pages/billing.html">
+          <a class="nav-link text-white {{$title == 'Subjects' ? 'active bg-gradient-primary' : ''}}" href="{{route('subject.index')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
             </div>
@@ -131,7 +131,7 @@
         </li>
       </ul>
     </div>
-    
+
   </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
@@ -262,7 +262,7 @@
                 <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Milap Technologies</a>
               </div>
             </div>
-            
+
           </div>
         </div>
       </footer>
@@ -602,6 +602,25 @@
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
   </script>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript">
+      var i = 0;
+      $("#dynamic-ar").click(function () {
+          ++i;
+          $("#dynamicAddRemove").append('<tr><td><input type="text" name="addMoreInputFields[' + i +
+              '][subject]" placeholder="Enter subject" class="form-control" /></td><td><button type="button" class="btn btn-outline-danger remove-input-field">Delete</button></td></tr>'
+          );
+      });
+      $(document).on('click', '.remove-input-field', function () {
+          $(this).parents('tr').remove();
+      });
+  </script>
+
+
+
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->

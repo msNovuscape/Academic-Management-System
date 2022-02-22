@@ -8,6 +8,7 @@ use App\Models\Program;
 class ProgramController extends Controller
 {
     public $title = 'Programs';
+
     public function index(){
         $programs = Program::where('status',true)->get();
         $title = $this->title;
@@ -20,10 +21,11 @@ class ProgramController extends Controller
 
     public function store(Request $request){
         $values = ['name' => $request['name'],
-                    'no_of_semester' => $request['no_of_semester']
+                    'no_of_semester' => $request['no_of_semester'],
+
                     ];
         $insert = new Program();
-        $insert->create($values);            
+        $insert->create($values);
         return redirect()->route('program.index');
     }
     public function edit($id){
@@ -43,4 +45,14 @@ class ProgramController extends Controller
             return redirect()->route('program.index');
         }
     }
+
+    public function delete(Request $request,$id){
+        $title = $this->title;
+        $program = Program::findorfail($id);
+        $delete = $program->delete();
+        if($delete){
+            return redirect()->route('program.index');
+        }
+
+}
 }

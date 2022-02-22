@@ -33,7 +33,7 @@
                       <tr>
                         <td>
                           <div class="d-flex px-2 py-1">
-                            
+
                             <div class="d-flex flex-column justify-content-center">
                               <h6 class="mb-0 text-sm">{{$program->name}}</h6>
                             </div>
@@ -50,9 +50,13 @@
                         </td>
                         <td class="align-middle">
                           <a href="{{route('program.edit',['id' => $program->id])}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit Program">
-                            Edit
+                            Edit /
                           </a>
+                            <a href="{{route('program.delete',['id' => $program->id])}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Delete Program" onclick="return confirm('Are you sure want to delete?')">
+                                Delete
+                            </a>
                         </td>
+
                       </tr>
                     @endforeach
                   </tbody>
@@ -62,7 +66,7 @@
           </div>
         </div>
       </div>
-      
-     
+
+
     </div>
-@endsection    
+@endsection
