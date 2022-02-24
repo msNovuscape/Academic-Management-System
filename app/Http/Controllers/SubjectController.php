@@ -32,9 +32,9 @@ class SubjectController extends Controller
        return view('subject.index',compact('title','subjects'));
     }
     public function add(){
-    $add = Program::get()->all();
+    $programs = Program::get()->all();
     $title = $this->title;
-    return view('subject.add_form',compact('title','add'));
+    return view('subject.add_form',compact('title','programs'));
 
     }
     public function store(Request $request){

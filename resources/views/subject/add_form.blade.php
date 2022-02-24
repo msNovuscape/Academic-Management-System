@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Add Program
+    Add Subject
 @endsection
 
 @section('content')
@@ -21,26 +21,26 @@
 
 
                                 <div class="form-group row">
-                                <label for="" class="col-sm-3">Program Name:</label>
-                                <div class="col-sm-9">
-                                    <select required name="program_id" class="form-control form-control-sm">
-                                        <option value="" disabled selected>--Select Any One--</option>
-                                        @foreach ($add as $subj)
-
-
-                                        <option value="{{$subj->id}}" >{{$subj->name}}</option>
+                                <label for="">Program Name:</label>
+                                <div class="input-group input-group-outline mb-3">
+                                    <select required name="program_id" class="form-control">
+                                        <option value="" disabled selected>Choose Program</option>
+                                        @foreach ($programs as $program)
+                                        <option value="{{$program->id}}" >{{$program->name}}</option>
                                         @endforeach
                                     </select>
+</div>
 
 
+                                 <label for="">Semester:</label>
                                 <div class="input-group input-group-outline mb-3">
 
-                                   Semester  <input type="text" name = "semester" value="" class="form-control">
+                                   <input type="text" name = "semester" value="" class="form-control ">
                                 </div>
-                                <div class="input-group input-group-outline mb-3">
-
-                               {{-- Subject <input type="text" name = "subject_name" class="form-control">
-                                </div>--}}
+                                <label for="">Subject Name:</label>
+                                <div class="input-group input-group-outline mb-6">
+                                  <input type="text" name = "subject_name" class="form-control">
+                                </div>
 
 
                                             @if ($errors->any())
@@ -59,12 +59,14 @@
                                             @endif
                                             <table class="table table-bordered" id="dynamicAddRemove">
                                                 <tr>
-                                                    <th>Subject</th>
-                                                    <th>Action</th>
+                                                    <th><label for="">Subject Name:</label></th>
                                                 </tr>
                                                 <tr>
 
-                                                    <td><input type="text" name="subject_name" placeholder="Enter subject" class="form-control"  />
+                                                    <td>
+                                                    <div class="input-group input-group-outline mb-6">
+                                  <input type="text" name = "subject_name" class="form-control">
+                                </div>
                                                     </td>
                                                     <td><button type="button" name="add" id="dynamic-ar" class="btn btn-outline-primary">Add Subject</button></td>
                                                 </tr>
